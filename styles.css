@@ -13,7 +13,7 @@ h1 {
   font-size: 3rem;
 }
 
-button {
+.moves-btn {
   font-size: 4rem;
   width: 7rem;
   height: 7rem;
@@ -23,7 +23,6 @@ button {
   cursor: pointer;
   transition: 0.4s;
 }
-
 button:hover {
   box-shadow: 0 0 1rem rgb(255, 179, 0);
 }
@@ -40,4 +39,53 @@ button:hover {
 
 .orange {
   color: rgb(255, 179, 0);
+}
+
+.powerups {
+  display: flex;
+  gap: 3rem;
+
+  button {
+    border-radius: 100rem;
+    padding: 0;
+    border: 3px solid white;
+    width: 5rem;
+    height: 5rem;
+    background-size: contain;
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
+  }
+
+  button:nth-of-type(1) {
+    background-image: url("icons/gun.png");
+  }
+
+  button:nth-of-type(2) {
+    background-image: url("icons/karen.jpg");
+  }
+
+  button:nth-of-type(3) {
+    background-image: url("icons/zawardudo.jpg");
+  }
+
+  img {
+    max-width: 7rem;
+    border-radius: 100rem;
+  }
+}
+
+.gun-counter, .karen-counter, .zawarudo-counter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100rem;
+  background-color: rgb(255, 255, 255);
+  font-size: 1rem; 
+  font-weight: bold;
 }
