@@ -24,16 +24,27 @@
 
   <div class="powerups">
 
-    <button class="gun"><span class="gun-counter"></span></button>
+    <button class="gun" onclick="playGame('gun')"><span class="gun-counter">0</span></button>
 
-    <button class="karen"><span class="karen-counter"></span></button>
+    <button class="karen" onclick="playGame('karen')"><span class="karen-counter">0</span></button>
 
-    <button class="zawarudo"><span class="zawarudo-counter"></span></button>
+    <button class="zawarudo" onclick="playGame('zawarudo')"><span class="zawarudo-counter">0</span></button>
   </div>
 
   <div class="moves-text"></div>
   <div class="result"></div>
   <div class="scores"></div>
+
+
+  <div class="sidebar">Welcome to RPS(or is it?)
+    <br>Hold down 'r', 'p', or 's' to play rock, paper, or scissors respectively.
+    <br>There are powerups. powerups unlock when you win:
+    <br>Gun unlocks when you win 10 times,
+    <br>Karen unlocks when you win 30 times, 
+    <br>and Za Warudo unlocked when you win 50 times.
+    <br>These powerups give you instawins
+    <br>glhf :S
+    </div>
 
   <script src="scripts/script.js" type="module"></script>
 </body>

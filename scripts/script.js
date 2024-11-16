@@ -1,6 +1,6 @@
 import { score, updateScore } from "./score.js";
 // import { playAudio } from "./audio.js";
-import { updatePowerups } from "./powerups.js";
+import { powerups, updatePowerups} from "./powerups.js";
 
 const moves = ['rock', 'paper', 'scissors'];
 const movesText = document.querySelector('.moves-text');
@@ -10,6 +10,7 @@ const scoresText = document.querySelector('.scores');
 
 function playGame(playerMove) {
   let result = '';
+
 
   const computerMove = moves[Math.floor(Math.random() * 3)]
 
@@ -32,6 +33,22 @@ function playGame(playerMove) {
 
   };
 
+  if (playerMove === 'gun' && powerups.gun > 0) {
+    powerups.gun--
+    score.wins += 3;
+    result = 'Call an ambulance! But not for me👹'
+
+  } else if (playerMove === 'karen' && powerups.karen > 0) {
+    powerups.karen--
+    score.wins += 7;
+    result = 'I want to speak to your manager👹'
+
+  } else if (playerMove === 'zawarudo' && powerups.zawarudo > 0) {
+    powerups.zawarudo--
+    score.wins += 14;
+    result = 'ZA WARRRRUUDDOOOOOO!!!!! RGRTHTDVSWHAZRJBI'
+  } 
+    
 
   movesText.innerHTML =  `You played: <span class="orange">${playerMove}</span>. 
     Computer played: <span class="orange">${computerMove}</span>.`;
@@ -51,6 +68,20 @@ document.addEventListener('keydown', (event) => {
 
   if (event.key === 'r') {
     playGame('rock')
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+
+  if (event.key === 'p') {
+    playGame('paper')
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+
+  if (event.key === 's') {
+    playGame('scissors')
   }
 })
 

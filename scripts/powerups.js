@@ -38,4 +38,6 @@ export function updatePowerups(score) {
   karenPowerup.innerHTML = powerups.karen;
   zawarudoPowerup.innerHTML = powerups.zawarudo
 
+  console.log(powerups)
+
 }
