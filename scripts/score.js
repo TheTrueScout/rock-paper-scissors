@@ -1,9 +1,17 @@
-export const score = {
-  wins: 0,
-  losses: 0,
-  ties: 0
-}
+import { scoresText } from "./script.js"
 
+export let score = JSON.parse(localStorage.getItem('score'))
+
+
+
+if (!score) {
+  score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+  }
+}
+  
 export function updateScore(result) {
   if (result === 'You win!') {
     score.wins++
@@ -13,3 +21,14 @@ export function updateScore(result) {
     score.losses++
   }
 }
+
+
+export function resetScore() {
+    score = {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    }
+    scoresText.innerHTML = `Wins: ${score.wins}<br> Losses: ${score.losses}<br> Ties: ${score.ties}`
+    localStorage.setItem('score', JSON.stringify(score));
+  }

@@ -1,11 +1,11 @@
-import { score, updateScore } from "./score.js";
+import { score, updateScore, resetScore } from "./score.js";
 // import { playAudio } from "./audio.js";
 import { powerups, updatePowerups} from "./powerups.js";
 
 const moves = ['rock', 'paper', 'scissors'];
 const movesText = document.querySelector('.moves-text');
 const resultText = document.querySelector('.result');
-const scoresText = document.querySelector('.scores');
+export const scoresText = document.querySelector('.scores');
 
 
 function playGame(playerMove) {
@@ -61,6 +61,8 @@ function playGame(playerMove) {
 
   updatePowerups(score);
 
+  localStorage.setItem('score', JSON.stringify(score))
+
 };
 
 
@@ -87,3 +89,4 @@ document.addEventListener('keydown', (event) => {
 
 
 window.playGame = playGame; // because i am calling playGame() from the html(with onclick=""), i need this code.
+window.resetScore = resetScore;

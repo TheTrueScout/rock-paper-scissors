@@ -99,3 +99,13 @@ button:hover {
   max-width: 20rem;
   font-size: 0.7rem;
 }
+
+.reset-score {
+  align-self: flex-start;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  transition: 0.4s;
+  background-color: white;
+  font-weight: bold;
+  border: none;
+}
