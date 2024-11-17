@@ -1,8 +1,7 @@
-import { scoresText } from "./script.js"
+import { updateScoreText } from "./script.js"
+import { powerups } from "./powerups.js"
 
 export let score = JSON.parse(localStorage.getItem('score'))
-
-
 
 if (!score) {
   score = {
@@ -29,6 +28,7 @@ export function resetScore() {
       losses: 0,
       ties: 0
     }
-    scoresText.innerHTML = `Wins: ${score.wins}<br> Losses: ${score.losses}<br> Ties: ${score.ties}`
+
+    updateScoreText();
     localStorage.setItem('score', JSON.stringify(score));
   }

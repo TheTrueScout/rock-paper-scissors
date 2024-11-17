@@ -1,11 +1,15 @@
 import { score, updateScore, resetScore } from "./score.js";
 // import { playAudio } from "./audio.js";
-import { powerups, updatePowerups} from "./powerups.js";
+import { powerups, resetPowerups, updatePowerups} from "./powerups.js";
 
 const moves = ['rock', 'paper', 'scissors'];
 const movesText = document.querySelector('.moves-text');
 const resultText = document.querySelector('.result');
 export const scoresText = document.querySelector('.scores');
+
+updatePowerups(score);
+
+updateScoreText();
 
 
 function playGame(playerMove) {
@@ -57,12 +61,18 @@ function playGame(playerMove) {
 
   updateScore(result);
 
-  scoresText.innerHTML = `Wins: ${score.wins}<br> Losses: ${score.losses}<br> Ties: ${score.ties}`
+  updateScoreText();
 
   updatePowerups(score);
 
-  localStorage.setItem('score', JSON.stringify(score))
+  localStorage.setItem('score', JSON.stringify(score));
+  localStorage.setItem('powerups', JSON.stringify(powerups));
 
+
+};
+
+export function updateScoreText() {
+  scoresText.innerHTML = `Wins: ${score.wins}<br> Losses: ${score.losses}<br> Ties: ${score.ties}`
 };
 
 
@@ -90,3 +100,4 @@ document.addEventListener('keydown', (event) => {
 
 window.playGame = playGame; // because i am calling playGame() from the html(with onclick=""), i need this code.
 window.resetScore = resetScore;
+window.resetPowerups = resetPowerups;

@@ -2,10 +2,14 @@ const gunPowerup = document.querySelector('.gun-counter')
 const karenPowerup = document.querySelector('.karen-counter')
 const zawarudoPowerup = document.querySelector('.zawarudo-counter')
 
-export const powerups = {
-  gun: 0,
-  karen: 0,
-  zawarudo: 0
+export let powerups = JSON.parse(localStorage.getItem('powerups'));
+
+if (!powerups) {
+  powerups = {
+    gun: 0,
+    karen: 0,
+    zawarudo: 0
+  }
 }
 
 export function updatePowerups(score) {
@@ -40,4 +44,19 @@ export function updatePowerups(score) {
 
   console.log(powerups)
 
+}
+
+
+export function resetPowerups() {
+  powerups = {
+    gun: 0,
+    karen: 0,
+    zawarudo: 0
+  }
+
+  gunPowerup.innerHTML = powerups.gun;
+  karenPowerup.innerHTML = powerups.karen;
+  zawarudoPowerup.innerHTML = powerups.zawarudo
+
+  localStorage.setItem('powerups', JSON.stringify(powerups));
 }

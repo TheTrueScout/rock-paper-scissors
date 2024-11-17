@@ -108,4 +108,5 @@ button:hover {
   background-color: white;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 }
